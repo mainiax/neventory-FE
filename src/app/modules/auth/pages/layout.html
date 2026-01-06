@@ -1,0 +1,12 @@
+<!-- modules/auth/pages/layout.html -->
+<div class="grid grid-cols-2 md:grid-cols-2 min-h-screen pt-4 pb-4">
+  <div class="pt-6 mx-auto w-full flex flex-col items-center justify-center">
+    <div>
+      <img [src]="neventoryPng()" />
+    </div>
+  </div>
+  <main class="mx-auto w-full flex flex-col items-center justify-center">
+    <!-- <p-toast key="global" position="top-center" [preventOpenDuplicates]="true"></p-toast> -->
+    <router-outlet></router-outlet>
+  </main>
+</div>

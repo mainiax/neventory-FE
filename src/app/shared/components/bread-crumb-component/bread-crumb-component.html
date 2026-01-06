@@ -1,0 +1,23 @@
+<nav hlmBreadcrumb>
+  <ol hlmBreadcrumbList class="flex flex-row-reverse items-center gap-2 justify-between">
+    @for (crumb of breadcrumbs; let last = $last; track crumb.url) {
+      <li hlmBreadcrumbItem>
+        @if (!last) {
+          <a hlmBreadcrumbLink [routerLink]="crumb.url">
+            {{ crumb.label }}
+          </a>
+        } @else {
+          <span hlmBreadcrumbPage>
+            {{ crumb.label }}
+          </span>
+        }
+      </li>
+
+      @if (!last) {
+        <li hlmBreadcrumbSeparator>
+          <ng-icon name="lucideSlash" />
+        </li>
+      }
+    }
+  </ol>
+</nav>

@@ -1,0 +1,15 @@
+<div className="flex">
+  <div>
+    <app-sidebar-component />
+  </div>
+
+  <div>
+    <!-- navbar -->
+    <main className="w-full">
+      <app-navbar-component />
+      <div className="px-4 md:px-8 lg:px-16">
+        <router-outlet />
+      </div>
+    </main>
+  </div>
+</div>

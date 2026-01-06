@@ -1,0 +1,119 @@
+<div id="" class="my-auto flex flex-col w-full items-center justify-center">
+  <auth-head-wrapper>
+    <!-- logo slot -->
+    <!-- <img [src]="neventoryPng()" logo /> -->
+
+    <!-- title slot -->
+    <span title>Create an account</span>
+
+    <!-- subtitle slot -->
+    <span subtitle>Start your 30-day free trial.</span>
+  </auth-head-wrapper>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="justify-center items-center">
+      <div id="input-boxes" class="flex flex-col gap-4 items-center pt-6">
+        <app-app-field-component
+          [control]="form.controls.firstName"
+          label="First Name"
+          type="text"
+          placeholder="Enter your first name"
+          autocomplete="name"
+        >
+        </app-app-field-component>
+      </div>
+      <div id="input-boxes" class="flex flex-col gap-4 items-center pt-6">
+        <app-app-field-component
+          [control]="form.controls.lastName"
+          label="Last Name"
+          type="text"
+          placeholder="Enter your last name"
+          autocomplete="name"
+        >
+        </app-app-field-component>
+      </div>
+      <div id="input-boxes" class="flex flex-col gap-4 items-center pt-6">
+        <app-app-field-component
+          [control]="form.controls.email"
+          label="Email"
+          type="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+        >
+        </app-app-field-component>
+      </div>
+
+      <div id="input-boxes" class="flex flex-col gap-4 items-center pt-6">
+        <app-app-field-component
+          [control]="form.controls.password"
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+        >
+        </app-app-field-component>
+      </div>
+
+      <div id="input-checkbox" class="flex flex-row pt-6 justify-between">
+        <div class="flex flex-row gap-2">
+          <hlm-checkbox
+            id="terms"
+            [checked]="true"
+            class="items-start self-start data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600 data-[state=checked]:text-white dark:data-[state=checked]:border-blue-700 dark:data-[state=checked]:bg-blue-700"
+          />
+          <label hlmLabel for="terms" class="">Accept terms and conditions</label>
+        </div>
+        <div
+          class="text-sm text-blue-600 opacity-100 hover:text-gray-900 hover:font-medium items-end"
+        >
+          Forgot password?
+        </div>
+      </div>
+
+      <div id="buttons">
+        <button
+          hlmBtn
+          class="bg-blue w-full mt-6 text-black bg-blue-600 hover:!bg-blue-600"
+          type="submit"
+          [disabled]="isFetching()"
+        >
+          <span class="text-white text-center pb-10 pt-10 font-medium">Get Started </span>
+        </button>
+        <div class="gap-2 pt-6 text-gray-500 flex items-center">
+          <hr class="w-full" />
+          <p class="text-sm opacity-100 w-full">or continue with</p>
+          <hr class="w-full" />
+        </div>
+        <div class="grid grid-cols-3 gap-2 pt-4">
+          <button
+            hlmBtn
+            class="w-full mt-6 bg-white text-black border border-gray-300"
+            type="button"
+          >
+            <img [src]="linkedinPng()" />
+          </button>
+          <button
+            hlmBtn
+            class="w-full mt-6 bg-white text-black border border-gray-300"
+            type="button"
+          >
+            <img [src]="googlePng()" />
+          </button>
+          <button
+            hlmBtn
+            class="w-full mt-6 bg-white text-black border border-gray-300"
+            type="button"
+          >
+            <img [src]="githubPng()" />
+          </button>
+        </div>
+      </div>
+
+      <div class="w-full pt-6 text-gray-500 opacity-100 flex items-center justify-center gap-2">
+        <p>Already have an account?</p>
+        <a class="text-blue-600 hover:text-gray-900 hover:font-medium" routerLink="../login">
+          log in
+        </a>
+      </div>
+    </div>
+  </form>
+</div>

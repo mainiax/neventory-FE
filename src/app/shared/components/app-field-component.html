@@ -1,0 +1,35 @@
+<label class="w-full">
+  @if (label()) {
+    <span class="mb-1 block text-sm font-medium text-gray-700">{{ label() }}</span>
+  }
+
+  <div class="relative w-full">
+    <ng-content select="[prefix]"></ng-content>
+    <input
+      hlmInput
+      class="w-90 border border-gray-300 focus-visible:!border-gray-500"
+      [class.border-red-500]="showError()"
+      [attr.type]="type()"
+      [attr.name]="name()"
+      [attr.autocomplete]="autocomplete()"
+      [attr.placeholder]="placeholder()"
+      [disabled]="disabled()"
+      [value]="control()?.value ?? ''"
+      (input)="onInput($any($event.target).value)"
+      (blur)="control()?.markAsTouched()"
+    />
+    <ng-content select="[suffix]"></ng-content>
+  </div>
+
+  <div
+    class="mt-1 min-h-4 text-xs"
+    [class.text-red-600]="showError()"
+    [class.text-gray-500]="!showError()"
+  >
+    @if (showError()) {
+      {{ errorText() }}
+    } @else if (hint()) {
+      {{ hint() }}
+    }
+  </div>
+</label>

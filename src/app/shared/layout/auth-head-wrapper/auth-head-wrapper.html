@@ -1,0 +1,15 @@
+<div id="reusable" class="flex flex-col gap-4 w-full text-center items-center">
+  <div class="pb-1.5 flex flex-col items-center">
+    <img [src]="neventoryPng()" />
+
+    <ng-content select="[logo]"></ng-content>
+  </div>
+
+  <span class="w-full text-4xl text-gray-900 font-semibold tracking-tighter opacity-100 pb-0">
+    <ng-content select="[title]"></ng-content>
+  </span>
+
+  <span class="text-1xl text-gray-500 opacity-100">
+    <ng-content select="[subtitle]"></ng-content>
+  </span>
+</div>
