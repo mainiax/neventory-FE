@@ -11,7 +11,7 @@
     <!-- toggle dark mode -->
 
     <!-- avatar -->
-    <hlm-avatar variant="large">
+    <hlm-avatar variant="large" [hlmDropdownMenuTrigger]="menu">
       <!-- <img
         src="/assets/avatar.png"
         alt="spartan logo. Resembling a spartanic shield"
@@ -19,7 +19,7 @@
       /> -->
       <span class="bg-brand-primary text-red-400" hlmAvatarFallback>RG</span>
     </hlm-avatar>
-    <!-- <ng-template #menu>
+    <ng-template #menu>
       <hlm-dropdown-menu class="w-56">
         <hlm-dropdown-menu-label>My Account</hlm-dropdown-menu-label>
 
@@ -53,11 +53,6 @@
             <hlm-dropdown-menu-shortcut>⌘B</hlm-dropdown-menu-shortcut>
           </button>
 
-          <button hlmDropdownMenuItem side="right" align="start" [hlmDropdownMenuTrigger]="invite">
-            <span>Invite Users</span>
-            <hlm-dropdown-menu-item-sub-indicator />
-          </button>
-
           <button hlmDropdownMenuItem>
             <span>New Team</span>
             <hlm-dropdown-menu-shortcut>⌘+T</hlm-dropdown-menu-shortcut>
@@ -87,6 +82,6 @@
           <hlm-dropdown-menu-shortcut>⇧⌘Q</hlm-dropdown-menu-shortcut>
         </button>
       </hlm-dropdown-menu>
-    </ng-template> -->
+    </ng-template>
   </div>
 </nav>

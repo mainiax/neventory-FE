@@ -1,3 +1,4 @@
+import { HlmInputImports } from '@spartan-ng/helm/input';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,14 +7,14 @@ import {
   InputSignal,
   signal,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { AbstractControl, ReactiveFormsModule } from '@angular/forms';
-import { HlmInputModule } from '@spartan-ng/helm/input';
+
 import { merge, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-app-field-component',
-  imports: [HlmInputModule, ReactiveFormsModule, CommonModule],
+  imports: [HlmInputImports, ReactiveFormsModule],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app-field-component.html',

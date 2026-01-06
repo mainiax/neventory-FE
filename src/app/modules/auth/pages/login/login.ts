@@ -1,10 +1,11 @@
+import { HlmInputImports } from '@spartan-ng/helm/input';
+import { HlmLabelImports } from '@spartan-ng/helm/label';
 import { AuthHeadWrapper } from './../../../../shared/layout/auth-head-wrapper/auth-head-wrapper';
 import { Router, RouterLink } from '@angular/router';
-import { HlmButtonModule } from './../../../../../ui/ui-button-helm/src/index';
-import { HlmCheckboxModule } from './../../../../../ui/ui-checkbox-helm/src/index';
+import { HlmButtonImports } from './../../../../../ui/ui-button-helm/src/index';
+import { HlmCheckboxImports } from './../../../../../ui/ui-checkbox-helm/src/index';
 import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
-import { HlmInputModule } from '@spartan-ng/helm/input';
-import { HlmLabelModule } from '@spartan-ng/helm/label';
+
 import {
   FormControl,
   ReactiveFormsModule,
@@ -24,11 +25,11 @@ import { AUTH_TOKEN } from '../../api/tokens/auth.token';
   standalone: true,
   selector: 'app-login',
   imports: [
-    HlmInputModule,
+    HlmInputImports,
     AuthHeadWrapper,
-    HlmLabelModule,
-    HlmCheckboxModule,
-    HlmButtonModule,
+    HlmLabelImports,
+    HlmCheckboxImports,
+    HlmButtonImports,
     RouterLink,
     ReactiveFormsModule,
     AppFieldComponent,

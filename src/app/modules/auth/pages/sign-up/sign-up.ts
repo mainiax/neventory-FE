@@ -1,8 +1,9 @@
+import { HlmLabelImports } from '@spartan-ng/helm/label';
+import { HlmInputImports } from '@spartan-ng/helm/input';
 import { Router, RouterLink } from '@angular/router';
-import { HlmButtonModule } from './../../../../../ui/ui-button-helm/src/index';
-import { HlmCheckboxModule } from './../../../../../ui/ui-checkbox-helm/src/index';
-import { HlmLabelModule } from '@spartan-ng/helm/label';
-import { HlmInputModule } from '@spartan-ng/helm/input';
+import { HlmButtonImports } from './../../../../../ui/ui-button-helm/src/index';
+import { HlmCheckboxImports } from './../../../../../ui/ui-checkbox-helm/src/index';
+
 import { AuthHeadWrapper } from './../../../../shared/layout/auth-head-wrapper/auth-head-wrapper';
 import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
 import {
@@ -21,12 +22,12 @@ import { AUTH_TOKEN } from '../../api/tokens/auth.token';
 @Component({
   selector: 'app-sign-up',
   imports: [
-    HlmInputModule,
+    HlmInputImports,
     RouterLink,
     AuthHeadWrapper,
-    HlmLabelModule,
-    HlmCheckboxModule,
-    HlmButtonModule,
+    HlmLabelImports,
+    HlmCheckboxImports,
+    HlmButtonImports,
     AppFieldComponent,
     ReactiveFormsModule,
   ],

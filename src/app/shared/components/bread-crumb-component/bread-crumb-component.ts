@@ -5,7 +5,7 @@ import { SIDEBAR_ROUTES, SidebarRoute } from '../../../core/routes/sidebar.route
 
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { HlmBreadCrumbImports } from '@spartan-ng/helm/breadcrumb';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-bread-crumb-component',
