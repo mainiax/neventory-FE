@@ -2,8 +2,8 @@ import { HlmInputImports } from '@spartan-ng/helm/input';
 import { HlmLabelImports } from '@spartan-ng/helm/label';
 import { AuthHeadWrapper } from './../../../../shared/layout/auth-head-wrapper/auth-head-wrapper';
 import { Router, RouterLink } from '@angular/router';
-import { HlmButtonImports } from './../../../../../ui/ui-button-helm/src/index';
-import { HlmCheckboxImports } from './../../../../../ui/ui-checkbox-helm/src/index';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
+import { HlmCheckboxImports } from '@spartan-ng/helm/checkbox';
 import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
 
 import {

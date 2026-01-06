@@ -1,8 +1,6 @@
 import { HlmLabelImports } from '@spartan-ng/helm/label';
 import { HlmInputImports } from '@spartan-ng/helm/input';
 import { Router, RouterLink } from '@angular/router';
-import { HlmButtonImports } from './../../../../../ui/ui-button-helm/src/index';
-import { HlmCheckboxImports } from './../../../../../ui/ui-checkbox-helm/src/index';
 
 import { AuthHeadWrapper } from './../../../../shared/layout/auth-head-wrapper/auth-head-wrapper';
 import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
@@ -18,6 +16,8 @@ import { emailDomain } from '../../../../shared/helper/helper';
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AUTH_TOKEN } from '../../api/tokens/auth.token';
+import { HlmCheckboxImports } from '@spartan-ng/helm/checkbox';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 @Component({
   selector: 'app-sign-up',
