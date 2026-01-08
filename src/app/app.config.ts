@@ -12,23 +12,33 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { httpErrorInterceptor } from './shared/interceptors/httpErrorInterceptor';
 import { provideIcons } from '@ng-icons/core';
 import {
+  lucideAccessibility,
+  lucideBell,
+  lucideChartBar,
+  lucideChevronUp,
   lucideCircleHelp,
   lucideCirclePlus,
   lucideCircleUser,
   lucideCode,
   lucideCog,
+  lucideDatabase,
   lucideGithub,
   lucideKeyboard,
   lucideLayers,
+  lucideLayoutDashboard,
   lucideLogOut,
   lucideMail,
   lucideMessageSquare,
+  lucideMoon,
+  lucidePackage,
   lucidePlus,
+  lucideSettings,
   lucideSlash,
   lucideSmile,
+  lucideSun,
   lucideUser,
 } from '@ng-icons/lucide';
-
+import { provideHlmSidebarConfig } from '@spartan-ng/helm/sidebar';
 export const appConfig: ApplicationConfig = {
   providers: [
     { provide: AUTH_TOKEN, useExisting: AuthService },
@@ -39,6 +49,15 @@ export const appConfig: ApplicationConfig = {
       routes,
       //  withDebugTracing()
     ),
+    provideHlmSidebarConfig({
+      sidebarWidth: '12rem',
+      sidebarWidthMobile: '18rem',
+      sidebarWidthIcon: '3rem',
+      sidebarCookieName: 'sidebar_state',
+      sidebarCookieMaxAge: 60 * 60 * 24 * 7,
+      sidebarKeyboardShortcut: 'b',
+      mobileBreakpoint: '768px',
+    }),
     provideIcons({
       lucideSlash,
       lucideUser,
@@ -55,6 +74,16 @@ export const appConfig: ApplicationConfig = {
       lucideMail,
       lucideMessageSquare,
       lucideCirclePlus,
+      lucideBell,
+      lucideMoon,
+      lucideSun,
+      lucideLayoutDashboard,
+      lucidePackage,
+      lucideDatabase,
+      lucideChartBar,
+      lucideSettings,
+      lucideAccessibility,
+      lucideChevronUp,
     }),
 
     provideAnimationsAsync(),

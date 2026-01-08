@@ -2,84 +2,95 @@
   <!-- left -->
   <!-- Collapsle Button -->
 
-  Collapsible Button
+  <div class="flex items-center gap-2">
+    <!-- Collapse Button -->
+    <button hlmSidebarTrigger class="icon-container">
+      <ng-icon name="lucideMenu" />
+    </button>
+  </div>
   <!-- right -->
 
   <div class="flex items-center gap-4">
     <!-- bread crumb -->
     <app-bread-crumb-component></app-bread-crumb-component>
     <!-- toggle dark mode -->
-
+    <div>
+      <button class="icon-container" (click)="toggleTheme()">
+        @if (!isDark) {
+          <!-- Light mode → show moon -->
+          <ng-icon name="lucideMoon" />
+        } @else {
+          <!-- Dark mode → show sun -->
+          <ng-icon name="lucideSun" class="" />
+        }
+      </button>
+    </div>
+    <!-- bellIcon -->
+    <div class="icon-container">
+      <ng-icon name="lucideBell" color="headingsA" />
+    </div>
     <!-- avatar -->
-    <hlm-avatar variant="large" [hlmDropdownMenuTrigger]="menu">
-      <!-- <img
+    <hlm-avatar variant="large" [hlmDropdownMenuTrigger]="menu" class="bg-secondary text-primary">
+      <img
         src="/assets/avatar.png"
         alt="spartan logo. Resembling a spartanic shield"
         hlmAvatarImage
-      /> -->
-      <span class="bg-brand-primary text-red-400" hlmAvatarFallback>RG</span>
+      />
+      <span hlmAvatarFallback>RG</span>
     </hlm-avatar>
+
+    <!-- dropdown -->
     <ng-template #menu>
-      <hlm-dropdown-menu class="w-56">
-        <hlm-dropdown-menu-label>My Account</hlm-dropdown-menu-label>
+      <hlm-dropdown-menu class="w-36 mr-2">
+        <!-- Header label from the group -->
+        <hlm-dropdown-menu-label>
+          {{ accountMenuItems[0].label }}
+        </hlm-dropdown-menu-label>
 
+        <!-- First group items -->
         <hlm-dropdown-menu-group>
-          <button hlmDropdownMenuItem>
-            <span>Profile</span>
-            <hlm-dropdown-menu-shortcut>⇧⌘P</hlm-dropdown-menu-shortcut>
-          </button>
-
-          <button hlmDropdownMenuItem>
-            <span>Billing</span>
-            <hlm-dropdown-menu-shortcut>⌘B</hlm-dropdown-menu-shortcut>
-          </button>
-
-          <button hlmDropdownMenuItem>
-            <span>Settings</span>
-            <hlm-dropdown-menu-shortcut>⌘S</hlm-dropdown-menu-shortcut>
-          </button>
-
-          <button hlmDropdownMenuItem>
-            <span>Keyboard shortcuts</span>
-            <hlm-dropdown-menu-shortcut>⌘K</hlm-dropdown-menu-shortcut>
-          </button>
+          @for (item of accountMenuItems[0].items; track item.key) {
+            <button hlmDropdownMenuItem (click)="onMenuSelect(item.key)">
+              <span>{{ item.label }}</span>
+              @if (item.shortcut) {
+                <hlm-dropdown-menu-shortcut>
+                  {{ item.shortcut }}
+                </hlm-dropdown-menu-shortcut>
+              }
+            </button>
+          }
         </hlm-dropdown-menu-group>
 
         <hlm-dropdown-menu-separator />
 
-        <hlm-dropdown-menu-group>
-          <button hlmDropdownMenuItem>
-            <span>Team</span>
-            <hlm-dropdown-menu-shortcut>⌘B</hlm-dropdown-menu-shortcut>
-          </button>
+        <!-- Second group (if you have one, e.g. Support) -->
+        @if (accountMenuItems.length > 1) {
+          <hlm-dropdown-menu-group>
+            @for (item of accountMenuItems[1].items; track item.key) {
+              <button hlmDropdownMenuItem>
+                <span>{{ item.label }}</span>
+                @if (item.shortcut) {
+                  <hlm-dropdown-menu-shortcut>
+                    {{ item.shortcut }}
+                  </hlm-dropdown-menu-shortcut>
+                }
+              </button>
+            }
+          </hlm-dropdown-menu-group>
 
-          <button hlmDropdownMenuItem>
-            <span>New Team</span>
-            <hlm-dropdown-menu-shortcut>⌘+T</hlm-dropdown-menu-shortcut>
-          </button>
-        </hlm-dropdown-menu-group>
+          <hlm-dropdown-menu-separator />
+        }
 
-        <hlm-dropdown-menu-separator />
-
-        <hlm-dropdown-menu-group>
-          <button hlmDropdownMenuItem>
-            <span>GitHub</span>
-          </button>
-
-          <button hlmDropdownMenuItem>
-            <span>Support</span>
-          </button>
-
-          <button hlmDropdownMenuItem disabled>
-            <span>API</span>
-          </button>
-        </hlm-dropdown-menu-group>
-
-        <hlm-dropdown-menu-separator />
-
-        <button hlmDropdownMenuItem>
-          Log out
-          <hlm-dropdown-menu-shortcut>⇧⌘Q</hlm-dropdown-menu-shortcut>
+        <!-- Logout -->
+        <button
+          hlmDropdownMenuItem
+          variant="destructive"
+          (click)="onMenuSelect(logoutMenuItem.key)"
+        >
+          <span>{{ logoutMenuItem.label }}</span>
+          <hlm-dropdown-menu-shortcut>
+            {{ logoutMenuItem.shortcut }}
+          </hlm-dropdown-menu-shortcut>
         </button>
       </hlm-dropdown-menu>
     </ng-template>

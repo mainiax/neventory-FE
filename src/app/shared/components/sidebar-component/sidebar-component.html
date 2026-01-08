@@ -1,1 +1,124 @@
-<p>sidebar-component works!</p>
+<div hlmSidebarWrapper class="overFlow-hidden">
+  <hlm-sidebar>
+    <div hlmSidebarHeader>
+      <!-- <div class="flex items-center space-x-2">
+        <img [src]="neventoryPng()" alt="Neventory Logo" class="h-8 w-8" />
+        <span class="text-lg font-semibold">Neventory</span> -->
+      <div hlmSidebarMenu>
+        <div hlmSidebarMenuItem>
+          <a hlmSidebarMenuButton class="flex items-baseline">
+            <div class="relative">
+              <hlm-avatar
+                variant="large"
+                class="bg-secondary text-primary size-10 overflow-visible"
+              >
+                <img
+                  src="/assets/avatar.png"
+                  alt="spartan logo. Resembling a spartanic shield"
+                  hlmAvatarImage
+                />
+                <span hlmAvatarFallback class="">RG</span>
+              </hlm-avatar>
+            </div>
+            <span>Neventory</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div hlmSidebarSeparator class="shrink!"></div>
+
+    <div hlmSidebarContent>
+      <div>
+        <div hlmSidebarGroup>
+          <div hlmSidebarGroupLabel>
+            <h1>Application</h1>
+          </div>
+          <div hlmSidebarGroupContent>
+            <div hlmSidebarMenu>
+              @for (item of _items; track item.label) {
+                <div hlmSidebarMenuItem>
+                  <a hlmSidebarMenuButton>
+                    <ng-icon hlm [name]="item.icon" />
+                    <span>{{ item.label }}</span>
+                  </a>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div hlmSidebarGroup></div>
+    </div>
+
+    <div hlmSidebarFooter>
+      <div hlmSidebarMenu>
+        <div hlmSidebarMenuItem>
+          <button
+            hlmSidebarMenuButton
+            class="bg-secondary text-primary flex items-baseline justify-between w-full"
+          >
+            <span> <ng-icon name="lucideUser" /> <span>John Doe</span></span>
+            <ng-icon name="lucideChevronUp" [hlmDropdownMenuTrigger]="menu" />
+          </button>
+        </div>
+        <!-- dropdown menu -->
+
+        <ng-template #menu>
+          <hlm-dropdown-menu class="w-36 mr-2">
+            <!-- Header label from the group -->
+            <hlm-dropdown-menu-label>
+              {{ accountMenuItems[0].label }}
+            </hlm-dropdown-menu-label>
+
+            <!-- First group items -->
+            <hlm-dropdown-menu-group>
+              @for (item of accountMenuItems[0].items; track item.key) {
+                <button hlmDropdownMenuItem (click)="onMenuSelect(item.key)">
+                  <span>{{ item.label }}</span>
+                  @if (item.shortcut) {
+                    <hlm-dropdown-menu-shortcut>
+                      {{ item.shortcut }}
+                    </hlm-dropdown-menu-shortcut>
+                  }
+                </button>
+              }
+            </hlm-dropdown-menu-group>
+
+            <hlm-dropdown-menu-separator />
+
+            <!-- Second group (if you have one, e.g. Support) -->
+            @if (accountMenuItems.length > 1) {
+              <hlm-dropdown-menu-group>
+                @for (item of accountMenuItems[1].items; track item.key) {
+                  <button hlmDropdownMenuItem>
+                    <span>{{ item.label }}</span>
+                    @if (item.shortcut) {
+                      <hlm-dropdown-menu-shortcut>
+                        {{ item.shortcut }}
+                      </hlm-dropdown-menu-shortcut>
+                    }
+                  </button>
+                }
+              </hlm-dropdown-menu-group>
+
+              <hlm-dropdown-menu-separator />
+            }
+
+            <!-- Logout -->
+            <button
+              hlmDropdownMenuItem
+              variant="destructive"
+              (click)="onMenuSelect(logoutMenuItem.key)"
+            >
+              <span>{{ logoutMenuItem.label }}</span>
+              <hlm-dropdown-menu-shortcut>
+                {{ logoutMenuItem.shortcut }}
+              </hlm-dropdown-menu-shortcut>
+            </button>
+          </hlm-dropdown-menu>
+        </ng-template>
+      </div>
+    </div>
+  </hlm-sidebar>
+</div>

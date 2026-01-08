@@ -10,33 +10,34 @@ export const SIDEBAR_ROUTES: SidebarRoute[] = [
   {
     label: 'Dashboard',
     path: '/app/dashboard',
-    icon: 'dashboard',
+    icon: 'lucideLayoutDashboard',
   },
 
   {
     label: 'Stock',
     path: '/app/stock',
-    icon: 'stock',
+    icon: 'lucidePackage',
   },
   {
     label: 'Inventory',
     path: '/app/inventory',
-    icon: 'inventory',
+    icon: 'lucideDatabase',
   },
   {
     label: 'Reports',
     path: '/app/reports',
-    icon: 'chart',
+    icon: 'lucideChartBar',
     roles: ['ADMIN'],
   },
   {
     label: 'Settings',
     path: '/app/settings',
-    icon: 'settings',
+    icon: 'lucideSettings',
     children: [
       {
         label: 'Accessibility',
         path: '/app/settings/accessibility',
+        icon: 'lucideAccessibility',
       },
     ],
   },

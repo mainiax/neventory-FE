@@ -3,7 +3,7 @@
     @for (crumb of breadcrumbs; let last = $last; track crumb.url) {
       <li hlmBreadcrumbItem>
         @if (!last) {
-          <a hlmBreadcrumbLink [routerLink]="crumb.url">
+          <a hlmBreadcrumbLink [routerLink]="crumb.url" class="text-text-strong">
             {{ crumb.label }}
           </a>
         } @else {

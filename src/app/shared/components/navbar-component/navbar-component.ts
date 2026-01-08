@@ -5,10 +5,55 @@ import { BreadCrumbComponent } from '../bread-crumb-component/bread-crumb-compon
 import { HlmAvatarImports } from '@spartan-ng/helm/avatar';
 
 import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
+import { logoutItem, menuGroups } from '../../helper/dropDownItemsList';
+import { HlmSidebar, HlmSidebarTrigger } from '@spartan-ng/helm/sidebar';
 @Component({
   selector: 'app-navbar-component',
-  imports: [BreadCrumbComponent, BreadCrumbComponent, HlmAvatarImports, HlmDropdownMenuImports],
+  imports: [
+    BreadCrumbComponent,
+    BreadCrumbComponent,
+    HlmAvatarImports,
+    HlmDropdownMenuImports,
+    NgIcon,
+    HlmSidebarTrigger,
+  ],
   templateUrl: './navbar-component.html',
   styleUrl: './navbar-component.css',
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  accountMenuItems: any[] = menuGroups;
+  logoutMenuItem = logoutItem;
+  isDark = false;
+  ngOnInit() {
+    this.isDark = document.documentElement.classList.contains('dark');
+  }
+  onMenuSelect(action: string) {
+    switch (action) {
+      case 'profile':
+        console.log('Go to profile');
+        break;
+
+      case 'billing':
+        console.log('Go to billing');
+        break;
+
+      case 'settings':
+        console.log('Go to settings');
+        break;
+
+      case 'support':
+        console.log('Open support');
+        break;
+
+      case 'logout':
+        console.log('Logging out...');
+        break;
+    }
+  }
+  toggleTheme() {
+    const root = document.documentElement;
+    root.classList.toggle('dark');
+    this.isDark = root.classList.contains('dark');
+    localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+  }
+}
