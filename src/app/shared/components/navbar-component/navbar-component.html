@@ -4,7 +4,14 @@
 
   <div class="flex items-center gap-2">
     <!-- Collapse Button -->
-    <button hlmSidebarTrigger class="icon-container">
+
+    <button
+      (click)="onToggleSidebar()"
+      [class]="{
+        'rounded-lg border border-border bg-white border-rounded': sideBarService.open(),
+        'rounded-lg': !sideBarService.open(),
+      }"
+    >
       <ng-icon name="lucideMenu" />
     </button>
   </div>

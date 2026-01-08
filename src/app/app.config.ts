@@ -28,6 +28,7 @@ import {
   lucideLayoutDashboard,
   lucideLogOut,
   lucideMail,
+  lucideMenu,
   lucideMessageSquare,
   lucideMoon,
   lucidePackage,
@@ -51,7 +52,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHlmSidebarConfig({
       sidebarWidth: '12rem',
-      sidebarWidthMobile: '18rem',
+      sidebarWidthMobile: '10rem',
       sidebarWidthIcon: '3rem',
       sidebarCookieName: 'sidebar_state',
       sidebarCookieMaxAge: 60 * 60 * 24 * 7,
@@ -84,6 +85,7 @@ export const appConfig: ApplicationConfig = {
       lucideSettings,
       lucideAccessibility,
       lucideChevronUp,
+      lucideMenu,
     }),
 
     provideAnimationsAsync(),

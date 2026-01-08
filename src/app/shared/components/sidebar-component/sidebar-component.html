@@ -1,5 +1,5 @@
 <div hlmSidebarWrapper class="overFlow-hidden">
-  <hlm-sidebar>
+  <hlm-sidebar collapsible="icon">
     <div hlmSidebarHeader>
       <!-- <div class="flex items-center space-x-2">
         <img [src]="neventoryPng()" alt="Neventory Logo" class="h-8 w-8" />
@@ -38,7 +38,7 @@
               @for (item of _items; track item.label) {
                 <div hlmSidebarMenuItem>
                   <a hlmSidebarMenuButton>
-                    <ng-icon hlm [name]="item.icon" />
+                    <ng-icon hlm [name]="item.icon" class="size-4" />
                     <span>{{ item.label }}</span>
                   </a>
                 </div>
